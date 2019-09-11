@@ -4,7 +4,7 @@
 		<b>Empresa de Ventas</b><br>
 		Calle Moquegua 430 <br>
 		Tel. 481890 <br>
-		Email:alexisfretez@gmail.com
+		Email:yonybrondy17@gmail.com
 	</div>
 </div> <br>
 <div class="row">

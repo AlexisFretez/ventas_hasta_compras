@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Ventas
+        Compras
         <small>Listado</small>
         </h1>
     </section>
@@ -27,7 +27,6 @@
                                     <th>#</th>
                                     <th>Nombre Proveedor</th>
                                     <th>Tipo Comprobante</th>
-                                    
                                     <th>Fecha</th>
                                     <th>Total</th>
                                     <th>Opciones</th>

@@ -34,7 +34,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <table id="example" class="table table-bordered table-hover dt-responsive">
+                        <table id="example" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -48,10 +48,9 @@
                             </thead>
                             <tbody>
                                 <?php if (!empty($ventas)): ?>
-                                    <?php foreach($ventas as $key => $venta):?>
+                                    <?php foreach($ventas as $venta):?>
                                         <tr>
-                                            <td><?php echo $key+1;?></td>
-                                            <!-- <td><?php echo $venta->id;?></td> -->
+                                            <td><?php echo $venta->id;?></td>
                                             <td><?php echo $venta->nombre;?></td>
                                             <td><?php echo $venta->tipocomprobante;?></td>
                                             <td><?php echo $venta->num_documento;?></td>

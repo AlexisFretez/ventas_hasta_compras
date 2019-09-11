@@ -53,26 +53,20 @@
                                 </div> 
                                 <div class="col-md-3">
                                     <label for="">Fecha:</label>
-                                    <input type="text" class="form-control" value="<?php echo date('Y-m-d'); ?>" name="fecha" required readonly>
+                                    <input type="date" class="form-control" name="fecha" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                               <div class="col-md-6">
+                                <div class="col-md-6">
                                     <label for="">Producto:</label>
-                                    <div class="input-group">
-                                        <input type="hidden" name="idproducto" id="idproducto">
-                                        <input type="text" class="form-control" disabled="disabled" id="producto">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalproductos" ><span class="fa fa-product-hunt"></span> Buscar Producto</button>
-                                        </span>
-                                    </div><!-- /input-group -->
-                                </div> 
-                               <!--  <div class="col-md-2">
+                                    <input type="text" class="form-control" id="producto">
+                                </div>
+                                <div class="col-md-2">
                                     <label for="">&nbsp;</label>
                                     <button id="btn-agregar" type="button" class="btn btn-success btn-flat btn-block"><span class="fa fa-plus"></span> Agregar</button>
-                                </div> -->
+                                </div>
                             </div>
-                            <table id="tbventas" class="table table-bordered table-striped table-hover dt-responsive">
+                            <table id="tbventas" class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>Codigo</th>
@@ -144,20 +138,20 @@
                 <h4 class="modal-title">Lita de Clientes</h4>
             </div>
             <div class="modal-body">
-                <table id="example1" class="table table-bordered table-striped table-hover dt-responsive ">
+                <table id="example1" class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>Nombres</th>
+                            <th>#</th>
+                            <th>Nombre</th>
                             <th>Documento</th>
                             <th>Opcion</th>
-                           
                         </tr>
                     </thead>
                     <tbody>
                         <?php if(!empty($clientes)):?>
                             <?php foreach($clientes as $cliente):?>
                                 <tr>
-                                     <!-- <td><?php echo $cliente->id;?></td> --> 
+                                    <td><?php echo $cliente->id;?></td>
                                     <td><?php echo $cliente->nombre;?></td>
                                     <td><?php echo $cliente->num_documento;?></td>
                                     <?php $datacliente = $cliente->id."*".$cliente->nombre."*".$cliente->tipocliente."*".$cliente->tipodocumento."*".$cliente->num_documento."*".$cliente->telefono."*".$cliente->direccion;?>
@@ -179,74 +173,3 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-<!--=====================================
-=          Modal de Productos           =
-======================================-->
-
-
-
-
-
-<div class="modal fade" id="modalproductos">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Lita de Prdoductos</h4>
-            </div>
-            <div class="modal-body">
-                <table id="example2" class="table table-bordered table-striped table-hover dt-responsive">
-                    <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Precio</th>
-                            <th>Opcion</th>
-                           
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if(!empty($productos)):?>
-                                    <?php foreach($productos as $producto):?>
-                                        <tr>                                            
-                                            <td><?php echo $producto->nombre;?></td>
-                                            <td><?php echo number_format(($producto->precio),0,",",".") ;?></td>
-                                            <!-- <td><?php echo $producto->stock;?></td> -->
-                                            <?php $dataproducto = $producto->id."*".$producto->codigo."*".$producto->nombre."*".$producto->precio."*".$producto->stock."*".$producto->categoria;?>
-                                            <td>
-                                                 <button type="button" class="btn btn-success btn-checkproductos" value="<?php echo $dataproducto;?>"><span class="fa fa-check"></span></button>
-                                            </td>
-                                            
-
-
-                                        </tr>
-                                    <?php endforeach;?>
-                                <?php endif;?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

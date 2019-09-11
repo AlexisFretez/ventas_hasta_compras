@@ -38,22 +38,10 @@
                                 <label for="descripcion">Descripcion:</label>
                                 <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $producto->descripcion?>">
                             </div>
-                            <div class="form-group <?php echo !empty(form_error('precio_compra')) ? 'has-error':'';?>">
-                                <label for="precio_compra">Precio_compra:</label>
-                                <input type="text" class="form-control" id="precio_compra" name="precio_compra" value="<?php echo !empty(form_error('precio_compra')) ? set_value('precio_compra'):$producto->precio_compra?>">
-                                <?php echo form_error("precio_compra","<span class='help-block'>","</span>");?>
-                            </div>
-
-
                             <div class="form-group <?php echo !empty(form_error('precio')) ? 'has-error':'';?>">
                                 <label for="precio">Precio:</label>
                                 <input type="text" class="form-control" id="precio" name="precio" value="<?php echo !empty(form_error('precio')) ? set_value('precio'):$producto->precio?>">
                                 <?php echo form_error("precio","<span class='help-block'>","</span>");?>
-                            </div>
-                            <div class="form-group <?php echo !empty(form_error('precio')) ? 'has-error':'';?>">
-                                <label for="utilidad">Utilidad:</label>
-                                <input type="text" class="form-control" id="utilidad" name="utilidad" value="<?php echo !empty(form_error('utilidad')) ? set_value('utilidad'):$producto->utilidad?>">
-                                <?php echo form_error("utilidad","<span class='help-block'>","</span>");?>
                             </div>
                             <div class="form-group <?php echo !empty(form_error('stock')) ? 'has-error':'';?>">
                                 <label for="stock">Stock:</label>

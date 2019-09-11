@@ -21,7 +21,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <table id="example1" class="table table-bordered table-hover dt-responsive">
+                        <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -35,17 +35,14 @@
                             </thead>
                             <tbody>
                                 <?php if (!empty($ventas)): ?>
-                                    <?php foreach($ventas as $key => $venta):?>
+                                    <?php foreach($ventas as $venta):?>
                                         <tr>
-                                            <td><?php echo $key+1;?></td>
-                                            <!-- <td><?php echo $venta->id;?></td> -->
+                                            <td><?php echo $venta->id;?></td>
                                             <td><?php echo $venta->nombre;?></td>
                                             <td><?php echo $venta->tipocomprobante;?></td>
                                             <td><?php echo $venta->num_documento;?></td>
                                             <td><?php echo $venta->fecha;?></td>
-                                           <td><?php echo number_format(($venta->total),0,",",".") ;?></td>
-
-                                            <!-- <td><?php echo $venta->total;?></td> --> 
+                                            <td><?php echo $venta->total;?></td>
                                             <td>
                                                 <button type="button" class="btn btn-info btn-view-venta" value="<?php echo $venta->id;?>" data-toggle="modal" data-target="#modal-default"><span class="fa fa-search"></span></button>
                                             </td>
@@ -78,7 +75,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary btn-print"><span class="fa fa-print"> </span><a href=" "target="_blank"></a>Imprimir</button>
+        <button type="button" class="btn btn-primary btn-print"><span class="fa fa-print"> </span>Imprimir</button>
       </div>
     </div>
     <!-- /.modal-content -->

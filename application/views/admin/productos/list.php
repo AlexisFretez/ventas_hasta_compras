@@ -21,16 +21,14 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <table id="example1" class="table table-bordered table-hover dt-responsive">
+                        <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Codigo</th>
                                     <th>Nombre</th>
                                     <th>Descripcion</th>
-                                    <th>Precio CCompra</th>
                                     <th>Precio</th>
-                                    <th>Utilidad</th>
                                     <th>Stock</th>
                                     <th>Categoria</th>
                                     <th>Opciones</th>
@@ -38,18 +36,13 @@
                             </thead>
                             <tbody>
                                 <?php if(!empty($productos)):?>
-                                    <?php foreach($productos as $key => $producto):?>
+                                    <?php foreach($productos as $producto):?>
                                         <tr>
-                                            <td><?php echo $key+1;?></td>
-                                            <!-- <td><?php echo $producto->id;?></td> -->
+                                            <td><?php echo $producto->id;?></td>
                                             <td><?php echo $producto->codigo;?></td>
                                             <td><?php echo $producto->nombre;?></td>
                                             <td><?php echo $producto->descripcion;?></td>
-                                            <td><?php echo number_format(($producto->precio_compra),0,",",".") ;?></td>
-
-                                            <td><?php echo number_format(($producto->precio),0,",",".") ;?></td>
-                                            <td><?php echo number_format(($producto->utilidad),0,",",".") ;?></td>
-
+                                            <td><?php echo $producto->precio;?></td>
                                             <td><?php echo $producto->stock;?></td>
                                             <td><?php echo $producto->categoria;?></td>
                                             <?php $dataproducto = $producto->id."*".$producto->codigo."*".$producto->nombre."*".$producto->descripcion."*".$producto->precio."*".$producto->stock."*".$producto->categoria;?>
@@ -84,7 +77,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Informacion de la Productos</h4>
+        <h4 class="modal-title">Informacion de la Categoria</h4>
       </div>
       <div class="modal-body">
         

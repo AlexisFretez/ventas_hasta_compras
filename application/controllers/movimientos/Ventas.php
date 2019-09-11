@@ -26,8 +26,7 @@ class Ventas extends CI_Controller {
 	public function add(){
 		$data = array(
 			"tipocomprobantes" => $this->Ventas_model->getComprobantes(),
-			"clientes" => $this->Clientes_model->getClientes(),
-			"productos" => $this->Productos_model->getProductos()
+			"clientes" => $this->Clientes_model->getClientes()
 		);
 		$this->load->view("layouts/header");
 		$this->load->view("layouts/aside");

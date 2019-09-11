@@ -6,7 +6,6 @@
   <title>AdminLTE 2 | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="icon" href="<?php echo base_url();?>assets/img/plantilla/system.gif">
   
   <!-- base_url() = http://localhost/ventas_ci/-->
 

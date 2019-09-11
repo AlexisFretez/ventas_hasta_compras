@@ -22,8 +22,7 @@
                                 
                              </div>
                         <?php endif;?>
-                        <form name="calculadora" action="<?php echo base_url();?>mantenimiento/productos/store" method="POST">
-                        <div class="form-group" id="tbventas1" >
+                        <form action="<?php echo base_url();?>mantenimiento/productos/store" method="POST">
                             <div class="form-group <?php echo !empty(form_error('codigo')) ? 'has-error':'';?>">
                                 <label for="codigo">Codigo:</label>
                                 <input type="text" class="form-control" id="codigo" name="codigo" value="<?php echo set_value('codigo');?>">
@@ -38,29 +37,11 @@
                                 <label for="descripcion">Descripcion:</label>
                                 <input type="text" class="form-control" id="descripcion" name="descripcion">
                             </div>
-
-                            <div class="form-group <?php echo !empty(form_error('precio_compra')) ? 'has-error':'';?>">
-                                <label for="precio_compra">Precio Compra:</label>
-                                <input type="text" class="form-control" id="precio_compra" name="precio_compra" onKeyUp="Suma()">
-                                <?php echo form_error("precio_compra","<span class='help-block'>","</span>");?>
-                               <!--  <input type="text" class="form-control" id="precio_compra" name="precio_compra"> -->
-                            </div>
                             <div class="form-group <?php echo !empty(form_error('precio')) ? 'has-error':'';?>">
                                 <label for="precio">Precio:</label>
-                                <input type="text" class="form-control" id="precio" name="precio" onKeyUp="Suma()">
-                                <!-- <input type="text" class="form-control" id="precio" name="precio" value="<?php echo set_value('precio');?>"> -->
+                                <input type="text" class="form-control" id="precio" name="precio" value="<?php echo set_value('precio');?>">
                                 <?php echo form_error("precio","<span class='help-block'>","</span>");?>
-                                <!-- <input type="text" name="ingreso2" onKeyUp="Suma()"><br><br> -->
                             </div>
-                            <div class="form-group <?php echo !empty(form_error('utilidad')) ? 'has-error':'';?>">
-                                <label for="utilidad"></label>
-                                <input type="text" class="form-control" id="utilidad" name="utilidad">
-                                <?php echo form_error("utilidad","<span class='help-block'>","</span>");?>
-                                <!-- <input type="text" name="resultado" disabled><br> -->
-                            </div>
-                            
-
-
                             <div class="form-group <?php echo !empty(form_error('stock')) ? 'has-error':'';?>">
                                 <label for="stock">Stock:</label>
                                 <input type="text" class="form-control" id="stock" name="stock" value="<?php echo set_value('stock');?>">
@@ -73,7 +54,6 @@
                                         <option value="<?php echo $categoria->id?>"><?php echo $categoria->nombre;?></option>
                                     <?php endforeach;?>
                                 </select>
-                            </div>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success btn-flat">Guardar</button>
@@ -89,27 +69,3 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<script>
-//Función que realiza la suma
-function Suma() {
-   var precio_compra = document.calculadora.precio_compra.value;
-   var precio = document.calculadora.precio.value;
-   try{
-      //Calculamos el número escrito:
-       precio_compra = (isNaN(parseInt(precio_compra)))? 0 : parseInt(precio_compra);
-       precio = (isNaN(parseInt(precio)))? 0 : parseInt(precio);
-       document.calculadora.utilidad.value = precio-precio_compra;
-   }
-   //Si se produce un error no hacemos nada
-   catch(e) {}
-}
-</script>
-
-El evento onKeyUp se realiza cuando sueltas la tecla. Entonces es cuando se llama a la función Suma
-<form >
-Ingrese números:<br>
-<input type="text" name="ingreso1" onKeyUp="Suma()"><br><br>
-<input type="text" name="ingreso2" onKeyUp="Suma()"><br><br>
-El resultado es:<br>
-<input type="text" name="resultado" disabled><br>
-</form>

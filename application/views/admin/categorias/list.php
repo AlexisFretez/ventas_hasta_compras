@@ -1,18 +1,4 @@
- <script type="text/javascript">
-        
-        function ConfirmDelete(){
-            var respuesta = confirm ("Estas seguro de Eliminar La Categoria ");
-            if (respuesta == true) 
-            {
-                return true;
 
-            }
-            else
-            {
-                return false;
-            }
-        }
-    </script>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -22,8 +8,6 @@
         <small>Listado</small>
         </h1>
     </section>
-
-   
     <!-- Main content -->
     <section class="content">
         <!-- Default box -->
@@ -31,15 +15,13 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <?php if($permisos->insert == 1):?>
-                        <a href="<?php echo base_url();?>mantenimiento/categorias/add"  class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Categoria</a>
-                        <?php endif;?>
+                        <a href="<?php echo base_url();?>mantenimiento/categorias/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"></span> Agregar Categoria</a>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <table id="example1" class="table table-bordered table-hover dt-responsive">
+                        <table id="example1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -50,10 +32,9 @@
                             </thead>
                             <tbody>
                                 <?php if(!empty($categorias)):?>
-                                    <?php foreach($categorias as $key => $categoria):?>
+                                    <?php foreach($categorias as $categoria):?>
                                         <tr>
-                                            <td><?php echo $key+1;?></td>
-                                            <!-- <td><?php echo $categoria->id;?></td> -->
+                                            <td><?php echo $categoria->id;?></td>
                                             <td><?php echo $categoria->nombre;?></td>
                                             <td><?php echo $categoria->descripcion;?></td>
                                             <td>
@@ -61,12 +42,8 @@
                                                     <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $categoria->id;?>">
                                                         <span class="fa fa-search"></span>
                                                     </button>
-                                                    <?php if($permisos->update == 1):?>
                                                     <a href="<?php echo base_url()?>mantenimiento/categorias/edit/<?php echo $categoria->id;?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <?php endif;?>
-                                                    <?php if($permisos->delete == 1):?>
-                                                    <a href="<?php echo base_url();?>mantenimiento/categorias/delete/<?php echo $categoria->id;?>" class="btn btn-danger btn-remove" ><span class="fa fa-remove" ></span></a>
-                                                    <?php endif;?>
+                                                    <a href="<?php echo base_url();?>mantenimiento/categorias/delete/<?php echo $categoria->id;?>" class="btn btn-danger btn-remove"><span class="fa fa-remove"></span></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -76,7 +53,6 @@
                         </table>
                     </div>
                 </div>
-
             </div>
             <!-- /.box-body -->
         </div>
@@ -106,21 +82,3 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-<script>
-    
-
-    var base_url= "<?php echo base_url();?>";
-     $(".btn-view").on("click", function(){
-        var id = $(this).val();
-        $.ajax({
-            url: base_url + "mantenimiento/categorias/view/" + id,
-            type:"POST",
-            success:function(resp){
-                $("#modal-default .modal-body").html(resp);
-                //alert(resp);
-            }
-
-        });
-
-    });
-</script>
