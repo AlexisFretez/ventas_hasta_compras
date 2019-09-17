@@ -21,7 +21,7 @@ FUNCION VISTA VENTAS
 	}
 /*=============================================
 FUNCION guardar  ventas
-=============================================*/
+======================= ======================*/
 	public function save($data){
 		return $this->db->insert("compras",$data);
 	}
@@ -39,6 +39,11 @@ FUNCION RETOMA EL ULTIMO ID DE LA TABLA VENTAS
 	 	$resultado = $this->db->get("tipo_comprobante");
 	 	return $resultado->row();
 	 }
+
+	 public function getComprobantes(){
+		$resultados = $this->db->get("tipo_comprobante");
+		return $resultados->result();
+	}
 /*=============================================
 	FUNCION  ACTUALIZAR TIPOCOMPROBANTE         
 =============================================*/
@@ -73,11 +78,10 @@ FUNCION RETOMA EL ULTIMO ID DE LA TABLA VENTAS
 		$this->db->select("dt.*,p.codigo,p.nombre");
 		$this->db->from("detalle_compra dt");
 		$this->db->join("productos p","dt.producto_id = p.id");
-		$this->db->where("dt.compra_id",$id);
+		$this->db->where("dt.venta_id",$id);
 		$resultados = $this->db->get();
 		return $resultados->result();
 	}
-
 	
 /*=============================================
 FUNCION MOSTRAR TIPO COMPROBANTE FACTURA Y BOLETA

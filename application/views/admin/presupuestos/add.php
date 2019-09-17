@@ -4,7 +4,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-            Ventas
+            Presupuestos
             <small>Nuevo</small>
             </h1>
         </section>
@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             
-                            <form action="<?php echo base_url();?>movimientos/ventas/store" method="POST" class="form-horizontal">
+                            <form action="<?php echo base_url();?>movimientos/presupuestos/store" method="POST" class="form-horizontal">
                                 <div class="form-group">
                                     <div class="col-md-3">
                                         <label for="">Comprobante:</label>
@@ -31,13 +31,17 @@
                                         <input type="hidden" id="igv">
                                     </div>
                                     <div class="col-md-3">
+                                        <label for="">Fecha:</label>
+                                        <input type="text" class="form-control" value="<?php echo date('Y-m-d'); ?>" name="fecha" required readonly>
+                                    </div>
+                                    <!-- <div class="col-md-3">
                                         <label for="">Serie:</label>
                                         <input type="text" class="form-control" id="serie" name="serie" readonly>
-                                    </div>
-                                    <div class="col-md-3">
+                                    </div> -->
+                                    <!-- <div class="col-md-3">
                                         <label for="">Numero:</label>
                                         <input type="text" class="form-control" id="numero" name="numero" readonly>
-                                    </div>
+                                    </div> -->
                                      
                                 </div>
                                 <div class="form-group">
@@ -51,10 +55,7 @@
                                             </span>
                                         </div><!-- /input-group -->
                                     </div> 
-                                    <div class="col-md-3">
-                                        <label for="">Fecha:</label>
-                                        <input type="text" class="form-control" value="<?php echo date('Y-m-d'); ?>" name="fecha" required readonly>
-                                    </div>
+                                    
                                 </div>
                                 <div class="form-group">
                                <div class="col-md-6">
@@ -77,7 +78,6 @@
                                         <tr>
                                             <th>Codigo</th>
                                             <th>Nombre</th>
-
                                             <th>Precio</th>
                                             <th>Stock Max.</th>
                                             <th>Cantidad</th>
@@ -102,13 +102,12 @@
                                             <span class="input-group-addon">IGV:</span>
                                             <input type="text" class="form-control" placeholder="Username" name="igv" readonly="readonly">
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">Descuento:</span>
                                             <input type="text" class="form-control" placeholder="Username" name="descuento" value="0.00" readonly="readonly">
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">Total:</span>

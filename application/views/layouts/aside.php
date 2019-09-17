@@ -67,6 +67,8 @@
                             <li><a href="<?php echo base_url();?>administrador/permisos"><i class="fa fa-circle-o"></i> Permisos</a></li>
                         </ul>
                     </li>
+                    <li><a href="<?php echo base_url();?>movimientos/presupuestos"><i class="fa fa-circle-o"></i> Presupuestos</a></li>
+
                 </ul>
             </section>
             <!-- /.sidebar -->

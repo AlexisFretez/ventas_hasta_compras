@@ -109,7 +109,19 @@ $(document).ready(function () {
     $(document).on("click",".btn-view-compra",function(){
         valor_id = $(this).val();
         $.ajax({
-            url: base_url + "compras/view",
+            url: base_url + "movimientos/compras/view",
+            type:"POST",
+            dataType:"html",
+            data:{id:valor_id},
+            success:function(data){
+                $("#modal-default .modal-body").html(data);
+            }
+        });
+    });
+    $(document).on("click",".btn-view-presupuesto",function(){
+        valor_id = $(this).val();
+        $.ajax({
+            url: base_url + "movimientos/presupuestos/view",
             type:"POST",
             dataType:"html",
             data:{id:valor_id},
@@ -201,6 +213,24 @@ $(document).ready(function () {
             },
         }
     });
+//Menu buscar de modal productos
+    $('#example2').DataTable({
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontraron resultados en su busqueda",
+            "searchPlaceholder": "Buscar registros",
+            "info": "Mostrando registros de _START_ al _END_ de un total de  _TOTAL_ registros",
+            "infoEmpty": "No existen registros",
+            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primero",
+                "last": "Último",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            },
+        }
+    });
 	$('.sidebar-menu').tree();
 
     $("#comprobantes").on("change",function(){
@@ -250,6 +280,29 @@ $(document).ready(function () {
     });
     //$("#btn-agregar").on("click",function(){
     $(".btn-checkproductos").on("click",function(){
+        data = $(this).val();
+        if (data !='') {
+            infoproducto = data.split("*");
+            html = "<tr>";
+            html += "<td><input type='hidden' name='idproductos[]' value='"+infoproducto[0]+"'>"+infoproducto[1]+"</td>";
+            html += "<td>"+infoproducto[2]+"</td>";
+            html += "<td><input type='hidden' name='precios[]' value='"+infoproducto[3]+"'>"+infoproducto[3]+"</td>";
+            html += "<td>"+infoproducto[4]+"</td>";
+            html += "<td><input type='text' name='cantidades[]' value='1' class='cantidades'></td>";
+            html += "<td><input type='hidden' name='importes[]' value='"+infoproducto[3]+"'><p>"+infoproducto[3]+"</p></td>";
+            html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fa fa-remove'></span></button></td>";
+            html += "</tr>";
+            $("#tbventas tbody").append(html);
+            sumar();
+            $("#btn-agregar").val(null);
+            $("#producto").val(null);
+        }else{
+            alert("seleccione un producto...");
+        }
+    });
+
+    $("#btn-agregar").on("click",function(){
+    //$(".btn-checkproductos").on("click",function(){
         data = $(this).val();
         if (data !='') {
             infoproducto = data.split("*");

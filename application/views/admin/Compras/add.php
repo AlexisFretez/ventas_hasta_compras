@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         
-                        <form action="<?php echo base_url();?>Compras/store" method="POST" class="form-horizontal">
+                        <form action="<?php echo base_url();?>movimientos/compras/store" method="POST" class="form-horizontal">
                             <div class="form-group">
                                 <div class="col-md-3">
                                     <label for="">Comprobante:</label>
@@ -31,15 +31,15 @@
                                     <input type="hidden" id="idcomprobante" name="idcomprobante">
                                     <input type="hidden" id="igv">
                                 </div>
-                                <!-- <div class="col-md-3">
+                                 <div class="col-md-3">
                                     <label for="">Serie:</label>
-                                    <input type="text" class="form-control" id="serie" name="serie" readonly>
-                                </div> -->
-                                <!-- <div class="col-md-3">
+                                    <input type="text" class="form-control" id="serie" name="serie" >
+                                </div> 
+                                 <div class="col-md-3">
                                     <label for="">Numero:</label>
-                                    <input type="text" class="form-control" id="numero" name="numero" readonly>
+                                    <input type="text" class="form-control" id="numero" name="numero" >
                                 </div>
- -->                                
+                                 
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6">
@@ -78,7 +78,6 @@
                                 <tr>
                                     <th>Codigo</th>
                                     <th>Nombre</th>
-
                                     <th>Precio</th>
                                     <th>Stock.</th>
                                     <th>Cantidad</th>
@@ -105,11 +104,12 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="col-md-6">
+                                <div class="input-group">
                                     <span class="input-group-addon">Descuento:</span>
                                     <input type="text" class="form-control" placeholder="Username" name="descuento" value="0.00" readonly="readonly">
                                 </div>
                             </div>
+
                             <div class="col-md-3">
                                 <div class="input-group">
                                     <span class="input-group-addon">Total:</span>
